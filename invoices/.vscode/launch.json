@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "saui5 configuracion",
+      "name": "start_saui5",
       "cwd": "${workspaceFolder}/saui5",
       "runtimeArgs": [
         "fiori",
@@ -14,6 +14,7 @@
       "args": [
         "--open",
         "index.html"
+        //"test/flpSandbox.html?sap-ui-xx-viewCache=false#logaligroupsaui5-display"
       ],
       "windows": {
         "runtimeExecutable": "npx.cmd"
@@ -21,7 +22,10 @@
       "console": "internalConsole",
       "internalConsoleOptions": "openOnSessionStart",
       "env": {
-        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/invoices/saui5\"}"
+        "FIORI_TOOLS_UI5_VERSION": "",
+        "FIORI_TOOLS_UI5_URI": "https://ui5.sap.com",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/invoices/saui5\"}",
+        "FIORI_TOOLS_BACKEND_CONFIG": "[{\"path\":\"/v2\",\"destination\":\"Northwind\"}]"
       }
     }
   ],

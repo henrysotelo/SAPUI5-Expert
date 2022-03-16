@@ -1,10 +1,23 @@
 <mvc:View   controllerName="logaligroup.saui5.controller.App"
-            xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
-    <Input id="_IDCedula" 
-           value="{/recipient/id}" 
-           description="Cedula {/recipient/id}" 
-           width="60%"
-           valueLiveUpdate="true" />
-    <Input id="_IDNombre" value="{/recipient/nombre}" width="60%" />
-    <Button id="_IDbutton" text="{i18n>showHelloButtonText}" press=".onShowHello" ></Button>
+            xmlns="sap.m" 
+            xmlns:mvc="sap.ui.core.mvc"
+            displayBlock="true">
+        <Shell>
+            <App>
+                <pages>
+                    <Page title="{i18n>appTitle}" class="sapUiResponsiveMargin">
+                    <headerContent>
+                        <Button id="helloDialogHeader" 
+                                icon="sap-icon://action" 
+                                press=".onOpenDialogHeader" 
+                                class='sapUiSmallMarginEnd'/>
+                    </headerContent>
+                    <content>
+                        <mvc:XMLView viewName="logaligroup.saui5.view.helloPanel"/>
+                        <mvc:XMLView viewName="logaligroup.saui5.view.InvoicesList"/>
+                    </content>
+                    </Page>
+                </pages>
+            </App>
+        </Shell>
 </mvc:View>

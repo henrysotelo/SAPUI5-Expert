@@ -11,12 +11,11 @@
     "description": "{{appDescription}}",
     "dataSources": {
       "mainService": {
-        "uri": "/sap/opu/odata/",
+        "uri": "/v2/northwind/northwind.svc/",
         "type": "OData",
         "settings": {
-          "annotations": [],
-          "localUri": "localService/metadata.xml",
-          "odataVersion": "4.0"
+        "odataVersion": "2.0",
+        "localUri": "localService/metadata.xml"
         }
       }
     }
@@ -40,12 +39,11 @@
   "sap.ui5": {
     "flexEnabled": false,
     "rootView": {
-        "viewName": "logaligroup.saui5.view.App",
-        "type": "XML",
-        "async": true,
-        "id": "App"
-      },
-
+      "viewName": "logaligroup.saui5.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    },
     "dependencies": {
       "minUI5Version": "1.98.0",
       "libs": {
@@ -63,15 +61,17 @@
           "bundleName": "logaligroup.saui5.i18n.i18n"
         }
       },
-      "": {
+      "invoices": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "Invoices.json"
+      },
+      "Northwind": {
         "dataSource": "mainService",
         "preload": true,
         "settings": {
-          "synchronizationMode": "None",
-          "operationMode": "Server",
-          "autoExpandSelect": true,
-          "earlyRequests": true,
-          "groupId": "$direct"
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false
         }
       }
     },

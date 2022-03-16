@@ -1,0 +1,18 @@
+<mvc:View controllerName="logaligroup.saui5.controller.helloPanel" 
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:core="sap.ui.core"
+        displayBlock="true">
+
+<Panel headerText="{i18n>helloPanel}" class='sapUiResponsiveMargin' width="auto">
+    <content>
+        <Button icon="sap-icon://action" text="{i18n>helloDialogBut}" 
+                press=".onOpenDialog" class='sapUiSmallMarginEnd'/>
+        <Button text="{i18n>showHelloButtonText}" 
+                press=".onShowHello" class='sapUiSmallMarginEnd'/>
+         <Input id="_IDCedula" value="{/recipient/id}" width="60%" valueLiveUpdate="true" />
+            <Text text="Cedula {/recipient/id}" class='sapUiSmallMargin'/>
+    </content>
+</Panel>
+<core:Fragment fragmentName="logaligroup.saui5.view.form01" type="XML"/>
+</mvc:View>

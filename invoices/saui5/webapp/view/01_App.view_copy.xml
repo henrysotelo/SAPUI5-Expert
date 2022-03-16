@@ -1,0 +1,16 @@
+<mvc:View   controllerName="logaligroup.saui5.controller.App"
+            xmlns="sap.m" 
+            xmlns:mvc="sap.ui.core.mvc"
+            displayBlock="true">
+    <Shell>
+        <App>
+            <pages>
+                <Page title="{i18n>appTitle}" class="titleElementCenter">
+                    <content>
+                        <mvc:XMLView viewName="logaligroup.saui5.view.helloPanel" />
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
