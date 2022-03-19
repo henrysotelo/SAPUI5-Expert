@@ -4,7 +4,7 @@
         xmlns:core="sap.ui.core"
         displayBlock="true">
 
-    <Panel headerText="{i18n>helloPanel}">
+    <Panel headerText="{i18n>helloPanel}" class= "sapUiResponsiveMargin" width="auto">
         <content>
             <Button icon="sap-icon://action" text="{i18n>helloDialogBut}" 
                 press=".onOpenDialog" class='sapUiSmallMarginEnd'/>
