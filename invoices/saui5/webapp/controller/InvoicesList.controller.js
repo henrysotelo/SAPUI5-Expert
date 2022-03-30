@@ -40,6 +40,15 @@ sap.ui.define([
                 const oBinding = oList.getBinding("items");
                 oBinding.filter(aFilter);
                 //console.log('Listar', oBinding);
+            },
+
+            //Navegar
+            navigateToDetails: function(oEvent){
+                const oItem   = oEvent.getSource();
+                const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo('Details', {
+                    invoicePath: window.encodeURIComponent(oItem.getBindingContext("Northwind").getPath().substr(1))
+                });
             }
 
         });

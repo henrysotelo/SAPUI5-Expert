@@ -17,4 +17,5 @@
             <Text text="Cedula {/recipient/id}" class='sapUiSmallMargin'/>
         </content>
     </Panel>
+    <core:Fragment fragmentName="logaligroup.saui5.view.form01" type="XML"/>
 </mvc:View>

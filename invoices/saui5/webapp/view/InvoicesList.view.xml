@@ -25,7 +25,9 @@
                                         showMeasure:false
                                     } }" 
                         numberUnit="{currency>/cop}"
-                        numberState="{= ${Northwind>ExtendedPrice} > 50 ? 'Success' : 'Error' }">
+                        numberState="{= ${Northwind>ExtendedPrice} > 50 ? 'Success' : 'Error' }"
+                        type="Navigation" 
+                        press="navigateToDetails">
 
             <firstStatus>
                 <ObjectStatus text="{ path: 'invoices>Status',

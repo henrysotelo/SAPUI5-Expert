@@ -1,0 +1,19 @@
+<mvc:View controllerName="logaligroup.saui5.controller.Details"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core" displayBlock="true">
+    <Page title="{i18n>detailsPagelTitle}" showNavButton="true" navButtonPress=".onNavBack">
+        <ObjectHeader title="Detalle Factura">
+            <attributes>
+                <ObjectAttribute text="{Northwind>ShipName}"/>
+                <ObjectAttribute text="{Northwind>ShipAddress}"/>
+                <ObjectAttribute text="{Northwind>ShipCity}"/>
+                <ObjectAttribute text="{Northwind>ShipRegion}"/>
+                <ObjectAttribute text="{Northwind>ShipPostalCode}"/>
+                <ObjectAttribute text="{Northwind>ShipCountry}"/>
+                <ObjectAttribute text="{Northwind>CustomerID}"/>
+                <ObjectAttribute text="{Northwind>CustomerName}"/>
+            </attributes>
+        </ObjectHeader>
+    </Page>
+</mvc:View>
