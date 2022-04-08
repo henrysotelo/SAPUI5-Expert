@@ -1,40 +1,60 @@
 <mvc:XMLView controllerName="logaligroup.saui5.controller.InvoicesList"
-             xmlns="sap.m"
-             xmlns:mvc="sap.ui.core.mvc">
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
 
-<List id="invoiceList" 
-      headerText="{i18n>invoiceListTitle}" 
-      class="sapUiResposiveMargin" 
-      width="auto"
-      items="{ path: 'Northwind>/Invoices',
+    <Table id="invoiceList" headerText="{i18n>invoiceListTitle}" 
+			   class="sapUiResposiveMargin" width="auto" 
+			   items="{ path: 'Northwind>/Invoices',
                sorter: { path: 'ShipperName',
                          group: true } }">
-      <headerToolbar>
-        <Toolbar>
-            <Title text="{i18n>invoiceListTitle}"/>
-            <ToolbarSpacer/>
-            <SearchField width="50%" search=".onFilterInvoices"/>
-        </Toolbar>
-      </headerToolbar>
-    <items>
-        <ObjectListItem title="{Northwind>Quantity} X {Northwind>ProductName}"
-                        number="{ parts : [ {path : 'Northwind>ExtendedPrice'}, 
-                                            {path : 'currency>/cop'} ], 
-                                    type: 'sap.ui.model.type.Currency',
-                                    formatOptions:{
+        <headerToolbar>
+            <Toolbar>
+                <Title text="{i18n>invoiceListTitle}"/>
+                <ToolbarSpacer/>
+                <SearchField width="50%" search=".onFilterInvoices"/>
+            </Toolbar>
+        </headerToolbar>
+
+        <columns>
+            <Column hAlign="End" minScreenWidth="Small" demandPopin="true" width="6em">
+                <Text text="{i18n>columnQuantity}"/>
+            </Column>
+            <Column>
+                 <Text text="{i18n>columnName}"/>
+            </Column>
+            <Column minScreenWidth="Small" demandPopin="true">
+                 <Text text="{i18n>columnStatus}"/>
+            </Column>
+            <Column minScreenWidth="Tablet">
+                 <Text text="{i18n>columnSupplier}"/>
+            </Column>
+             <Column hAlign="End">
+                 <Text text="{i18n>comumnPrece}"/>
+            </Column>
+        </columns>
+        <items>
+        <ColumnListItem type="Navigation" 
+                        press="navigateToDetails">
+        
+            <cells>
+                <ObjectNumber number="{Northwind>Quantity}" emphasized="false"/>
+                <ObjectIdentifier title="{Northwind>ProductName}"/>
+                <Text text="{
+                        path: 'Northwind>Status',
+                        formatter: '.formatter.invoiceStatus' }"/>
+                
+                <Text text="{Northwind>ShipperName}"/>
+                <ObjectNumber number="{ parts : [ {path : 'Northwind>ExtendedPrice'}, 
+                                                  {path : 'currency>/cop'} ],
+                                                  type: 'sap.ui.model.type.Currency',
+                                        formatOptions:{
                                         showMeasure:false
                                     } }" 
-                        numberUnit="{currency>/cop}"
-                        numberState="{= ${Northwind>ExtendedPrice} > 50 ? 'Success' : 'Error' }"
-                        type="Navigation" 
-                        press="navigateToDetails">
+                              unit="{currency>/cop}" 
+                              state="{= ${Northwind>ExtendedPrice} > 50 ? 'Success' : 'Error' }"/>
+            </cells>
 
-            <firstStatus>
-                <ObjectStatus text="{ path: 'invoices>Status',
-                                      formatter : '.formatter.invoiceStatus'  }"/>
-            </firstStatus>
-
-      </ObjectListItem>
-    </items>
-</List>
+        </ColumnListItem>
+        </items>
+    </Table>
 </mvc:XMLView>

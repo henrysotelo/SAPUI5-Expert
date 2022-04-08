@@ -26,6 +26,9 @@ sap.ui.define([
 
                 //var i18nModel = new ResourceModel({ bundleName: 'logaligroup.saui5.i18n.i18n', locale: 'es' });
                 //this.setModel(i18nModel, 'i18n');
+                //set model
+                
+                //this.setModel(Models.createDeviceModel(), "device");
 
                 this._helloDialog = new helloDialog(this.getRootControl());
 
