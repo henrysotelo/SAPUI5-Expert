@@ -11,6 +11,7 @@ sap.ui.define([
         return Controller.extend('logaligroup.saui5.controller.App', {
             //Funcion Init
             oninit: function () {
+                this.getView().addSyleClass(this.getOwnerComponent().getContentDensityClass());
             },
             
             onOpenDialogHeader: function(){
