@@ -2,13 +2,38 @@
     controllerName="logaligroup.employees.controller.MainView"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
     <Shell id="shell">
         <App id="app">
             <pages>
                 <Page id="page" title="{i18n>title}">
                     <content>
-                        <Text text="Hello World"/>
+                        <HBox id="_IDGenHBox1">
+                            <Label id="labelEmployees" 
+                                   labelFor="inputEmployees" 
+                                   text="{i18n>labelEmployees}"
+                                   class="sapUiSmallMargin"/>
+                            <Input id="inputEmployees"
+                                   maxLength="6" 
+                                   width="200px"
+                                   class="sapUiSmallMarginEnd"
+                                   liveChange="onValidate"/>
+                        <Label  id="labelCountry" 
+                                labelFor="slCountry" 
+                                text="{i18n>labelCountry}"
+                                class="sapUiSmallMargin"
+                                visible="false"/>
+                        <Select id="slCountry" 
+                                forceSelection="false" 
+                                visible="false">
+                            <items>
+                                <core:Item id="_IDGenItem1" key="US" text="{i18n>conuntryUS}" />
+                                <core:Item id="_IDGenItem2" key="UK" text="{i18n>conuntryUK}" />
+                                <core:Item id="_IDGenItem3" key="ES" text="{i18n>conuntryES}" />
+                            </items>
+                        </Select>
+                        </HBox>
                     </content>
                 </Page>
             </pages>
