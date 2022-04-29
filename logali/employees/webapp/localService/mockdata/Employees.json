@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "EmployeeId": "1234",
     "CountryKey": "UK",
+=======
+    "EmployeeId": "",
+    "CountryKey": "",
+>>>>>>> 00_brach_test
     "ListCountry": [
         {
             "Key": "US",
@@ -49,6 +54,7 @@
                     "Freight": "78",
                     "ShipAddress": "Calle Alcala"
                 },
+<<<<<<< HEAD
                 {}
             ]
         },
@@ -57,6 +63,16 @@
             "Freight": "90",
             "ShipAddress": "Calle Mayor",
 
+=======
+                {
+                    "OrderID": "6731",
+                    "Freight": "90",
+                    "ShipAddress": "Calle Mayor"
+                }
+            ]
+        },
+        {
+>>>>>>> 00_brach_test
             "EmployeeID": "3",
             "LastName": "Davolio",
             "FirstName": "Nancy",
@@ -69,6 +85,7 @@
                     "Freight": "34",
                     "ShipAddress": "1029 - 12th Ave. S."
                 },
+<<<<<<< HEAD
                 {}
             ]
         },
@@ -77,6 +94,16 @@
             "Freight": "12",
             "ShipAddress": "2732 Baker Blvd.",
 
+=======
+                {
+                    "OrderID": "3057",
+                    "Freight": "12",
+                    "ShipAddress": "2732 Baker Blvd."
+                }
+            ]
+        },
+        {
+>>>>>>> 00_brach_test
             "EmployeeID": "4",
             "LastName": "Peacock",
             "FirstName": "Margaret",
