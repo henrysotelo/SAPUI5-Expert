@@ -2,62 +2,23 @@
 
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-<<<<<<< HEAD
-    "sap/ui/model/json/JSONModel"
-=======
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator"
-
->>>>>>> 00_brach_test
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      * @param {typeof sap.ui.model.json.JSONModel} JSONModel
-<<<<<<< HEAD
-     */
-    function (Controller, JSONModel) {
-=======
      * @param {typeof sap.ui.model.Filter} Filter
      * @param {typeof sap.ui.model.FilterOperator} FilterOperator
      */
     function (Controller, JSONModel, Filter, FilterOperator) {
->>>>>>> 00_brach_test
         "use strict";
 
         return Controller.extend("logaligroup.employees.controller.MainView", {
             onInit: function () {
                 var oJSONModel = new JSONModel();
                 var oView = this.getView();
-<<<<<<< HEAD
-                var i18nBundle = oView.getModel("i18n").getResourceBundle();
-
-//                var oJSON = {
-//                    "employeeId": "1234",
-//                    "countryKey": "UK",
-//                    "listCountry": [
-//                        {
-//                            "key": "US",
-//                            "text": i18nBundle.getText('conuntryUS') //"United States"
-//                        },
-//                        {
-//                            "key": "UK",
-//                            "text": i18nBundle.getText('conuntryUK') //"United Kindom"
-//                        },
-//                        {
-//                            "key": "ES",
-//                            "text": i18nBundle.getText('conuntryES') //"Spain"
-//                        }
-//                    ]
-//                };
-                //oJSONModel.setData(oJSON);
-                oJSONModel.loadData('./localService/mockdata/Employees.json');
-                //oJSONModel.attachRequestCompleted(function(onEventModel){
-                  //  console.log(JSON.stringify(oJSONModel.getData()));
-                //});
-                oView.setModel(oJSONModel)
-            },
-=======
                 //var i18nBundle = oView.getModel("i18n").getResourceBundle();
                 //                var oJSON = {
                 //                    "EmployeeId": "1234",
@@ -108,7 +69,6 @@ sap.ui.define([
                 oModel.setProperty("/CountryKey", "");
             },
 
->>>>>>> 00_brach_test
             onValidate: function () {
                 var inputEmployees = this.byId("inputEmployees");
                 var valueEmployees = inputEmployees.getValue();
