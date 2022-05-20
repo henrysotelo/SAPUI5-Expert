@@ -18,9 +18,9 @@ sap.ui.define([
 
         return Controller.extend("logaligroup.employees.controller.MainView", {
             onInit: function () {
-               
+
                 var oView = this.getView();
-   
+
                 var oJSONModelEmployees = new JSONModel();
                 oJSONModelEmployees.loadData("./localService/mockdata/Employees.json");
                 oView.setModel(oJSONModelEmployees, "jsonEmployees");
@@ -50,7 +50,7 @@ sap.ui.define([
                 }
 
                 if (oJSONCountry.CountryKey !== "") {
-                    filters.push(new Filter("Country", FilterOperator.EQ, oJSONCountry.CountryKey ));
+                    filters.push(new Filter("Country", FilterOperator.EQ, oJSONCountry.CountryKey));
                 }
 
                 var oList = this.getView().byId("tableEmployees");
@@ -58,27 +58,130 @@ sap.ui.define([
                 oBinding.filter(filters);
             },
 
-            onClearFilter: function(){
+            onClearFilter: function () {
                 var oModel = this.getView().getModel("jsonCountry");
                 oModel.setProperty("/EmployeeId", "");
                 oModel.setProperty("/CountryKey", "");
             },
 
-            showPostalCode: function(oEvent){
+            showPostalCode: function (oEvent) {
                 var itemPressed = oEvent.getSource();
                 var oContext = itemPressed.getBindingContext("jsonEmployees");
                 var objectContext = oContext.getObject();
                 sap.m.MessageToast.show(objectContext.PostalCode);
             },
 
-            onShowCity: function(){
+            showOrders: function (oEvent) {
+                var ordersTable = this.getView().byId("ordersTable");
+                ordersTable.destroyItems();
+
+                var itemPressed = oEvent.getSource();
+                var oContext = itemPressed.getBindingContext("jsonEmployees");
+
+                var objectContext = oContext.getObject();
+                var orders = objectContext.Orders;
+
+                var ordersItems = [];
+
+                for (var i in orders) {
+                    ordersItems.push(new sap.m.ColumnListItem({
+                        cells: [
+                            new sap.m.Label({ text: orders[i].OrderID }),
+                            new sap.m.Label({ text: orders[i].Freight }),
+                            new sap.m.Label({ text: orders[i].ShipAddress })
+                        ]
+                    }));
+                }
+
+                var newTable = new sap.m.Table({
+                    width: "auto",
+                    columns: [
+                        new sap.m.Column({ header: new sap.m.Label({ text: "{i18n>orderID}" }) }),
+                        new sap.m.Column({ header: new sap.m.Label({ text: "{i18n>freight}" }) }),
+                        new sap.m.Column({ header: new sap.m.Label({ text: "{i18n>shipAddress}" }) }),
+                    ],
+                    items: ordersItems
+                }).addStyleClass("sapUiSmallMargin");
+
+                ordersTable.addItem(newTable);
+
+
+
+                var newTableJSON = new sap.m.Table();
+                newTableJSON.setWidth("auto");
+                newTableJSON.addStyleClass("sapUiSmallMargin");
+
+                var columnOrderID = new sap.m.Column();
+                var labelOrderID = new sap.m.Label();
+                labelOrderID.bindProperty("text", "i18n>OrderID");
+                columnOrderID.setHeader(labelOrderID);
+                newTableJSON.addColumn(columnOrderID);
+
+                var columnFreight = new sap.m.Column();
+                var labelFreight = new sap.m.Label();
+                labelFreight.bindProperty("text", "i18n>freight");
+                columnFreight.setHeader(labelFreight);
+                newTableJSON.addColumn(columnFreight);
+
+                var columnShipAddress = new sap.m.Column();
+                var labelShipAddress = new sap.m.Label();
+                labelShipAddress.bindProperty("text", "i18n>shipAddress");
+                columnShipAddress.setHeader(labelShipAddress);
+                newTableJSON.addColumn(columnShipAddress);
+
+                var columnListItem = new sap.m.ColumnListItem();
+
+                var cellOrderID = new sap.m.Label();
+                cellOrderID.bindProperty("text", "jsonEmployees>OrderID");
+                columnListItem.addCell(cellOrderID);
+
+                var cellFreight = new sap.m.Label();
+                cellFreight.bindProperty("text", "jsonEmployees>Freight");
+                columnListItem.addCell(cellFreight);
+
+                var cellShipAddress = new sap.m.Label();
+                cellShipAddress.bindProperty("text", "jsonEmployees>ShipAddress");
+                columnListItem.addCell(cellShipAddress);
+
+                var oBindingInfo = {
+                    model: "jsonEmployees",
+                    path: "Orders",
+                    template: columnListItem
+                };
+
+                newTableJSON.bindAggregation("items", oBindingInfo);
+                newTableJSON.bindElement("jsonEmployees>" + oContext.getPath());
+
+                ordersTable.addItem(newTableJSON);
+            },
+
+
+            onShowOrders: function (oEvent) {
+
+                var isonPressed = oEvent.getSource();
+                var oContext = isonPressed.getBindingContext("jsonEmployees");
+
+                if (!this._oDialogOrders) {
+                    this._oDialogOrders = sap.ui.xmlfragment("logaligroup.employees.fragment.DialogOrders", this);
+                    this.getView().addDependent(this._oDialogOrders);
+                }
+
+                this._oDialogOrders.bindElement("jsonEmployees>" + oContext.getPath());
+                this._oDialogOrders.open();
+            },
+
+            onCloseOrders: function () {
+                this._oDialogOrders.close();
+            },
+
+            onShowCity: function () {
                 var oJSONModeConfig = this.getView().getModel("jsonModeConfig");
                 oJSONModeConfig.setProperty("/visibleCity", true);
                 oJSONModeConfig.setProperty("/visibleBtnShowCity", false);
                 oJSONModeConfig.setProperty("/visibleBtnHideCity", true);
             },
 
-            onHideCity: function(){
+            onHideCity: function () {
                 var oJSONModeConfig = this.getView().getModel("jsonModeConfig");
                 oJSONModeConfig.setProperty("/visibleCity", false);
                 oJSONModeConfig.setProperty("/visibleBtnShowCity", true);
