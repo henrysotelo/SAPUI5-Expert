@@ -44,7 +44,7 @@ sap.ui.define([
             showEmployeeDetails: function(Category, nameEvent, path){
 
                 var detailView = this.getView().byId("detailEmployee");
-                detailView.bindElement("jsonEmployees>" + path);
+                detailView.bindElement("odataNorthwind>" + path);
                 this.getView().getModel("jsonLayouts").setProperty("/ActiveKey", "TwoColumnsMidExpanded");
 
                 var incidenceModel = new JSONModel([]);

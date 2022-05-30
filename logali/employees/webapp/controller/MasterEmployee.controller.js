@@ -57,7 +57,7 @@ sap.ui.define([
                 ordersTable.destroyItems();
 
                 var itemPressed = oEvent.getSource();
-                var oContext = itemPressed.getBindingContext("jsonEmployees");
+                var oContext = itemPressed.getBindingContext("odataNorthwind");
 
                 var objectContext = oContext.getObject();
                 var orders = objectContext.Orders;
@@ -140,14 +140,14 @@ sap.ui.define([
             onShowOrders: function (oEvent) {
 
                 var isonPressed = oEvent.getSource();
-                var oContext = isonPressed.getBindingContext("jsonEmployees");
+                var oContext = isonPressed.getBindingContext("odataNorthwind");
 
                 if (!this._oDialogOrders) {
                     this._oDialogOrders = sap.ui.xmlfragment("logaligroup.employees.fragment.DialogOrders", this);
                     this.getView().addDependent(this._oDialogOrders);
                 }
 
-                this._oDialogOrders.bindElement("jsonEmployees>" + oContext.getPath());
+                this._oDialogOrders.bindElement("odataNorthwind>" + oContext.getPath());
                 this._oDialogOrders.open();
             },
 
@@ -183,7 +183,7 @@ sap.ui.define([
             },
 
             showEmployes: function(oEvent){
-                var path = oEvent.getSource().getBindingContext("jsonEmployees").getPath();
+                var path = oEvent.getSource().getBindingContext("odataNorthwind").getPath();
                 this._bus.publish("flexible", "showEmployee", path)
             }
         });
