@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Run employees-config",
+      "name": "employees-config_x1",
       "cwd": "${workspaceFolder}",
       "runtimeArgs": [
         "fiori",
@@ -23,33 +23,7 @@
       "outputCapture": "std",
       "env": {
         "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/logali/employees\"}",
-        "FIORI_TOOLS_BACKEND_CONFIG": "[{\"path\":\"/V2\",\"url\":\"https://services.odata.org\",\"destination\":\"Northwind\"}]",
-        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false"
-      }
-    },
-    {
-      "name": "Run employees-config",
-      "cwd": "${workspaceFolder}",
-      "runtimeArgs": [
-        "fiori",
-        "run"
-      ],
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "npx",
-      "args": [
-        "--open",
-        "index.html"
-      ],
-      "windows": {
-        "runtimeExecutable": "npx.cmd"
-      },
-      "console": "internalConsole",
-      "internalConsoleOptions": "openOnSessionStart",
-      "outputCapture": "std",
-      "env": {
-        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/logali/employees\"}",
-        "FIORI_TOOLS_BACKEND_CONFIG": "[{\"path\":\"/V2\",\"url\":\"https://services.odata.org\",\"destination\":\"Northwind\"}]",
+        "FIORI_TOOLS_BACKEND_CONFIG": "[{\"path\":\"/V2\",\"url\":\"https://services.odata.org\",\"destination\":\"Northwind\"},{\"path\":\"/sap\",\"url\":\"http://erp13.sap4practice.com:9037\",\"destination\":\"logaligroupERP\"}]",
         "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false"
       }
     }

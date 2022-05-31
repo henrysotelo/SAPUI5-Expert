@@ -1,5 +1,3 @@
-//import { get } from "http";
-
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
