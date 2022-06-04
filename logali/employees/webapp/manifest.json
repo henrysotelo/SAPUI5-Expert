@@ -87,7 +87,7 @@
                     "refreshAfterChange": false
                 }
             },
-            "incidenceModelSAP": {
+            "incidenceModel": {
                 "type": "sap.ui.model.odata.v2.ODataModel",
                 "dataSource": "YSAPUI5_SRV_01",
                 "preload": true,
