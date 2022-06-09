@@ -1,12 +1,14 @@
 sap.ui.define([
     'sap/ui/core/mvc/Controller',
-    "sap/ui/model/json/JSONModel"
+    "sap/ui/model/json/JSONModel",
+    'sap/m/MessageBox'
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller 
      * @param {typeof sap.ui.model.json.JSONModel} JSONModel 
+     * @param {typeof sap.m.MessageBox} MessageBox
      */
-    function (Controller, JSONModel) {
+    function (Controller, JSONModel, MessageBox) {
         'use strict';
         return Controller.extend('logaligroup.employees.controller.Main', {
 
@@ -98,7 +100,8 @@ sap.ui.define([
 
                         success: function () {
                             this.onReadODataIncidence.bind(this)(employeeId);
-                            sap.m.MessageToast.show(oResourceBundle.getText("odataSaveOK"));
+                            MessageBox.success(oResourceBundle.getText("odataSaveOK"));
+                            //sap.m.MessageToast.show(oResourceBundle.getText("odataSaveOK"));
                         }.bind(this),
 
                         error: function (e) {
@@ -153,6 +156,10 @@ sap.ui.define([
                         tableIncidence.removeAllContent();
 
                         for (var incidence in data.results) {
+                            
+                            data.results[incidence]._ValitateDate = true;
+                            data.results[incidence].EnabledSave = false;
+
                             var newIncidence
                                 = sap.ui.xmlfragment("logaligroup.employees.fragment.NewIncidence", this._detailEmployeeView.getController());
 
