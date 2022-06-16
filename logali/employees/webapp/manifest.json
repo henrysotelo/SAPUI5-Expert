@@ -121,9 +121,16 @@
             "routes": [
                 {
                     "name": "RouteMain",
-                    "pattern": "RouteMain",
+                    "pattern": "",
                     "target": [
                         "TargetMain"
+                    ]
+                },
+                {
+                    "name": "RouteOrderDetails",
+                    "pattern": "OrderDetails/{OrderID}",
+                    "target": [
+                        "TargetOrderDetails"
                     ]
                 }
             ],
@@ -134,14 +141,21 @@
                     "clearControlAggregation": false,
                     "viewId": "Main",
                     "viewName": "Main"
+                },
+
+                "TargetOrderDetails": {
+                    "viewType": "XML",
+                    "viewId": "OrderDetails",
+                    "viewName": "OrderDetails"
                 }
+
             }
         },
         "rootView": {
-            "viewName": "logaligroup.employees.view.Main",
+            "viewName": "logaligroup.employees.view.App",
             "type": "XML",
             "async": true,
-            "id": "App"
+            "id": "app"
         }
     }
 }

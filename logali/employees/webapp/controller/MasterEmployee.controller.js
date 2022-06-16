@@ -15,7 +15,7 @@ sap.ui.define([
         "use strict";
 
         return Controller.extend("logaligroup.employees.controller.MasterEmployee", {
-            
+
             onInit: function () {
                 this._bus = sap.ui.getCore().getEventBus();
             },
@@ -180,9 +180,18 @@ sap.ui.define([
                 }
             },
 
-            showEmployes: function(oEvent){
+            showEmployes: function (oEvent) {
                 var path = oEvent.getSource().getBindingContext("odataNorthwind").getPath();
                 this._bus.publish("flexible", "showEmployee", path)
+            },
+
+            toOrderDetails: function (oEvent) {
+                var orderID = oEvent.getSource().getBindingContext("odataNorthwind").getObject().OrderID
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("RouteOrderDetails", {
+                    OrderID: orderID
+                });
             }
+
         });
     });
