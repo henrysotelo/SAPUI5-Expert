@@ -1,5 +1,5 @@
 sap.ui.define([
-    'sap/ui/core/mvc/Controller',
+    "logaligroup/employees/controller/Base.controller",
     'logaligroup/employees/model/formatter',
     'sap/m/MessageBox'
 ],
@@ -7,9 +7,9 @@ sap.ui.define([
      * @param {typeof sap.ui.core.mvc.Controller } Controller
      * @param {typeof sap.m.MessageBox } MessageBox
      */
-    function (Controller, formatter, MessageBox) {
+    function (Base, formatter, MessageBox) {
         'use strict';
-        return Controller.extend("logaligroup.employees.controller.EmployeeDetails", {
+        return Base.extend("logaligroup.employees.controller.EmployeeDetails", {
 
             Formatter: formatter,
 
@@ -121,16 +121,6 @@ sap.ui.define([
                 contextObj.TypeX = true;
 
                 context.getModel().refresh();
-            },
-
-
-            toOrderDetails: function (oEvent) {
-                var orderID = oEvent.getSource().getBindingContext("odataNorthwind").getObject().OrderID
-                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                oRouter.navTo("RouteOrderDetails", {
-                    OrderID : orderID
-                });
             }
-
         });
     });
