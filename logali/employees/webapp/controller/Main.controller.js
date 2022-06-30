@@ -21,15 +21,15 @@ sap.ui.define([
                 var oView = this.getView();
 
                 var oJSONModelEmployees = new JSONModel();
-                oJSONModelEmployees.loadData("./localService/mockdata/Employees.json");
+                oJSONModelEmployees.loadData("./model/json/Employees.json");
                 oView.setModel(oJSONModelEmployees, "jsonEmployees");
 
                 var oJSONModelCountry = new JSONModel();
-                oJSONModelCountry.loadData("./localService/mockdata/Countries.json");
+                oJSONModelCountry.loadData("./model/json/Countries.json");
                 oView.setModel(oJSONModelCountry, "jsonCountry");
 
                 var oJSONModelLayouts = new JSONModel();
-                oJSONModelLayouts.loadData("./localService/mockdata/Layouts.json");
+                oJSONModelLayouts.loadData("./model/json/Layouts.json");
                 oView.setModel(oJSONModelLayouts, "jsonLayouts");
 
                 var oJSONModeConfig = new JSONModel({

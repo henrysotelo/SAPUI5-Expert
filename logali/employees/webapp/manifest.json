@@ -32,6 +32,10 @@
                     "localUri": "localService/YSAPUI5_SRV_01/metadata.xml",
                     "odataVersion": "2.0"
                 }
+            },
+            "jsonLayout":{
+                "uri": "/model/json/Layouts.json",
+                "type": "JSON"
             }
         }
     },
