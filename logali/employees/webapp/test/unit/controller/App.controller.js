@@ -1,13 +1,13 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"logaligroup/employees/controller/Main.controller"
+	"logaligroup/employees/controller/App.controller"
 ], function (Controller) {
 	"use strict";
 
-	QUnit.module("Main Controller");
+	QUnit.module("App Controller");
 
-	QUnit.test("I should test the Main controller", function (assert) {
+	QUnit.test("I should test the App controller", function (assert) {
 		var oAppController = new Controller();
 		oAppController.onInit();
 		assert.ok(oAppController);

@@ -39,7 +39,7 @@ sap.ui.define([
 							"tiles": [{
 								"tileType": "sap.ushell.ui.tile.StaticTile",
 								"properties": {
-									"title": "App Employess",
+									"title": "App Employees",
 									"targetURL": "#logaligroupemployees-display"
 								}
 							}]
@@ -55,7 +55,7 @@ sap.ui.define([
 								"semanticObject": "logaligroupemployees",
 								"action": "display",
 								"description": "A Fiori application.",
-								"title": "App Employess",
+								"title": "App Employees",
 								"signature": {
 									"parameters": {}
 								},

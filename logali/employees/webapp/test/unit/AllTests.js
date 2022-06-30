@@ -1,5 +1,5 @@
 sap.ui.define([
-	"logaligroup/employees/test/unit/controller/Main.controller"
+	"logaligroup/employees/test/unit/controller/App.controller"
 ], function () {
 	"use strict";
 });
